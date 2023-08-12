@@ -1,0 +1,24 @@
+﻿@page "/fetchdata/{PageFeature}"
+@inject NavigationManager NavManager
+<PageTitle>Self Aware Page</PageTitle>
+
+<h1>Self Aware Page</h1>
+
+<p>This component/page is @PageFeature. It will give you its own URL.</p>
+<a href=@PageUri>Home</a>
+
+
+
+
+@code {
+
+    [Parameter]
+    public string PageFeature { get; set; }
+
+    public string PageUri { get; set; }
+
+    protected override void OnInitialized()
+    {
+        PageUri = NavManager.BaseUri;
+    }
+}
